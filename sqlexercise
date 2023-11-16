@@ -1,0 +1,40 @@
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    DateOfBirth DATE,
+    Email VARCHAR(255),
+    Phone VARCHAR(20)
+);
+
+CREATE TABLE Course (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(255),
+    Credits INT
+);
+
+CREATE TABLE Instructor (
+    InstructorID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Email VARCHAR(255),
+    Phone VARCHAR(20)
+);
+
+CREATE TABLE Enrollment (
+    EnrollmentID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    EnrollmentDate DATE,
+    Grade VARCHAR(2),
+    FOREIGN KEY (StudentID) REFERENCES Student (StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Course (CourseID)
+);
+
+insert into Student(StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
+values ("12345N", "Neil Rosen", "Repato", "2002-08-23", "rneilrosen@gmail.com", "09951965332");
+values ("12346N", "Jesh", "Ballesteros", "09/24/2002", "abaloslyne@gmail.com", "099519653333");
+values ("12347N", "Patrick", "Star", "10/25/2002", "patstar@gmail.com", "09951965334");
+values ("12348N", "Lian", "Cabrito", "11/26/2002", "licab@gmail.com", "09951965335");
+values ("12349N", "Soti", "Rivo", "12/27/2002", "srivo@gmail.com", "09951965336");
+
